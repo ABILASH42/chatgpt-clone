@@ -1,6 +1,5 @@
 import "./globals.css";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/layout/AppSidebar";
+
 
 export default function RootLayout({
   children,
@@ -10,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="flex-1 p-6 h-full">{children}</main>
+        <main className="flex-1 ">{children}</main>
       </body>
     </html>
   );

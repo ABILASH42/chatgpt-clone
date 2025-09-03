@@ -1,22 +1,25 @@
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/AppSidebar";
+import AppNavBar from "@/components/layout/AppNavBar";
 
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/layout/AppSidebar"
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body >
+      <body>
         <SidebarProvider>
-          <div className="flex h-full">
+          <div className="flex h-full flex-1">
             <AppSidebar />
             <SidebarInset className="flex-1 flex flex-col">
-              <main className="flex-1">
-                {children}
-              </main>
+              <AppNavBar />
+              <main className="flex-1">{children}</main>
             </SidebarInset>
           </div>
         </SidebarProvider>
       </body>
     </html>
-  )
+  );
 }
