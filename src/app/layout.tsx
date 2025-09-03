@@ -8,6 +8,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>ChatGPT</title>
+      </head>
       <body>
         <main className="flex-1 ">{children}</main>
       </body>
