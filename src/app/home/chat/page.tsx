@@ -1,6 +1,6 @@
 "use client";
 import SearchBar from "@/components/ui/SearchBar";
-import React from "react";
+
 
 function page() {
   const messages = [
@@ -194,7 +194,7 @@ hi`
                 className={`p-3 rounded-2xl  ${
                   msg.role === "user"
                     ? "bg-blue-500 text-white rounded-br-none max-w-md "
-                    : "text-gray-900 rounded-bl-none w-full"
+                    : "text-gray-900  w-full"
                 }`}
               >
                 {msg.role === "ai" && msg.text.includes("def") ? (

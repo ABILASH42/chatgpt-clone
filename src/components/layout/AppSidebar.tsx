@@ -14,7 +14,7 @@ import {
 import { SquarePen, Atom, Images, CircleUserRound } from "lucide-react";
 
 const items = [
-  { title: "Home", url: "#" },
+  { title: "Home", url: "/home/chat" },
   { title: "Inbox", url: "#" },
   { title: "Calendar", url: "#" },
   { title: "Search", url: "#" },
@@ -42,7 +42,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <a>
+                  <a href="/home">
                     <SquarePen />
                     <span>New Chat</span>
                   </a>
