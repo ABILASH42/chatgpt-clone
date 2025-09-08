@@ -13,7 +13,7 @@ function SearchBar() {
     }
   };
   return (
-    <div className="shadow-sm border-1  flex flex-row items-end  w-[50%]  rounded-4xl justify-around p-2 relative bg-white">
+    <div className="shadow-sm border-1   flex flex-row items-end  w-[58%]  rounded-4xl justify-around p-2 relative ">
       <div className="rounded-full flex justify-items-center hover:bg-gray-200 p-2">
         <Plus />
       </div>

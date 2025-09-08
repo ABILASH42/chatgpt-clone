@@ -1,3 +1,4 @@
+"use client"
 import {
   Sidebar,
   SidebarContent,
@@ -12,16 +13,29 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar";
 import { SquarePen, Atom, Images, CircleUserRound } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const items = [
-  { title: "Home", url: "/home/chat" },
-  { title: "Inbox", url: "#" },
-  { title: "Calendar", url: "#" },
-  { title: "Search", url: "#" },
-  { title: "Settings", url: "#" },
-];
+type Conversation = {
+  id: number;
+  title: string;
+};
 
 export function AppSidebar() {
+   const [conversations, setConversations] = useState<Conversation[]>([]);
+
+  useEffect(() => {
+    const fetchConversations = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/conversations");
+        const data = await res.json();
+        setConversations(data); 
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchConversations();
+  }, []);
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
@@ -63,10 +77,10 @@ export function AppSidebar() {
           <SidebarGroupLabel>Chats</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {conversations.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <a href={`/home/chat/${item.id}`}>
                       <span className="sidebar-text group-data-[state=collapsed]:hidden">
                         {item.title}
                       </span>
