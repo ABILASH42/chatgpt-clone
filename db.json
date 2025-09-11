@@ -1,87 +1,586 @@
 {
   "conversations": [
     {
-      "id": 1,
+      "id": "1",
       "title": "AI Basics",
       "messages": [
-        { "id": 1, "role": "user", "text": "Hey, what exactly is machine learning?" },
-        { "id": 2, "role": "ai", "text": "Machine learning is a branch of artificial intelligence where computers learn patterns from data to make decisions or predictions without explicit programming. It includes supervised, unsupervised, and reinforcement learning approaches, each serving different purposes. In supervised learning, models learn from labeled data; in unsupervised, they find hidden patterns; and in reinforcement learning, agents learn by receiving rewards or penalties from their environment. Applications range from recommendation systems to autonomous vehicles, healthcare diagnostics, and financial modeling. The field has exploded in recent years thanks to advances in computational power, big data, and algorithms." },
-        { "id": 3, "role": "user", "text": "Can you give a practical example of supervised learning?" },
-        { "id": 4, "role": "ai", "text": "Sure! A classic example of supervised learning is predicting house prices. Suppose you have a dataset with features like square footage, number of bedrooms, and neighborhood, along with the actual prices of houses. You train a model on this data, and the model learns the relationship between features and price. Once trained, you can feed it a new house’s features and get a predicted price. Algorithms like linear regression, decision trees, and neural networks are commonly used for this. The key is that the model uses labeled data to learn, making it suitable for regression and classification tasks." },
-        { "id": 5, "role": "user", "text": "How does unsupervised learning differ?" },
-        { "id": 6, "role": "ai", "text": "Unsupervised learning deals with datasets that do not have labeled outputs. The algorithm tries to identify inherent structures or patterns in the data. For example, customer segmentation in marketing can group customers with similar behaviors without pre-existing categories. Clustering algorithms like K-means or hierarchical clustering are common, as well as dimensionality reduction techniques like PCA to simplify high-dimensional data. This approach is powerful for exploration, anomaly detection, and understanding complex datasets where labels are not available." },
-        { "id": 7, "role": "user", "text": "What is reinforcement learning in simple terms?" },
-        { "id": 8, "role": "ai", "text": "Reinforcement learning is a type of machine learning where an agent learns by interacting with an environment and receiving feedback through rewards or penalties. For instance, training an AI to play chess involves rewarding it for winning and penalizing it for losing. Over time, the agent develops strategies to maximize cumulative rewards. It is used in robotics, game AI, and autonomous systems. Popular algorithms include Q-learning, Deep Q-Networks, and policy gradient methods. RL focuses on sequential decision-making and long-term optimization." },
-        { "id": 9, "role": "user", "text": "Can you show a Python example of recursion?" },
-        { "id": 10, "role": "ai", "text": "Certainly! Here’s a simple recursive function to calculate factorial:\n\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)\n\nprint(factorial(5))  # Output: 120\n\nRecursion works by having a function call itself until it reaches a base condition. It's widely used in algorithms like Fibonacci series, tree traversals, and divide-and-conquer approaches. While elegant, recursion can be inefficient for large inputs without memoization or iterative optimization. It's essential to understand the problem depth and stack usage when designing recursive functions." },
-        { "id": 11, "role": "user", "text": "Explain Fibonacci recursion and why it’s inefficient." },
-        { "id": 12, "role": "ai", "text": "A recursive Fibonacci function calls itself twice for each number: fibonacci(n-1) + fibonacci(n-2). While this directly represents the mathematical definition, it recalculates the same values multiple times. For example, fibonacci(6) calls fibonacci(5) and fibonacci(4), but fibonacci(5) again calls fibonacci(4) and fibonacci(3), repeating work. This leads to exponential time complexity O(2^n). To improve efficiency, memoization stores already computed results, or dynamic programming solves iteratively. This reduces time complexity to linear O(n), making it suitable for larger inputs." },
-        { "id": 13, "role": "user", "text": "Can you show memoized Fibonacci in Python?" },
-        { "id": 14, "role": "ai", "text": "Yes! Here's a Python memoization example:\n\nmemo = {}\n\ndef fibonacci(n):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        return n\n    memo[n] = fibonacci(n-1) + fibonacci(n-2)\n    return memo[n]\n\nprint(fibonacci(40))  # Much faster!\n\nMemoization avoids repeated calculations by storing results in a cache. This dramatically speeds up recursive algorithms. It is widely used in dynamic programming problems like knapsack, coin change, and pathfinding in graphs. Understanding this technique is crucial for optimizing recursive solutions." },
-        { "id": 15, "role": "user", "text": "What is the difference between AI, ML, and DL?" },
-        { "id": 16, "role": "ai", "text": "AI (Artificial Intelligence) is the broad concept of machines performing tasks that normally require human intelligence. Machine Learning (ML) is a subset of AI, focused on algorithms that learn from data to make predictions or decisions. Deep Learning (DL) is a further subset of ML that uses neural networks with multiple layers to model complex patterns in large datasets. DL excels in image recognition, NLP, speech processing, and other high-dimensional data tasks. Think of them as concentric circles: DL ⊂ ML ⊂ AI." },
-        { "id": 17, "role": "user", "text": "How is AI used in healthcare?" },
-        { "id": 18, "role": "ai", "text": "AI in healthcare is used for diagnosis support, patient monitoring, drug discovery, and personalized treatment planning. For example, AI models can analyze medical images to detect tumors, often faster than human radiologists. Chatbots can assist patients in scheduling appointments or medication reminders. Predictive models help in identifying high-risk patients for proactive interventions. However, ethical concerns like bias, data privacy, and over-reliance on AI must be carefully managed." },
-        { "id": 19, "role": "user", "text": "Can AI replace doctors?" },
-        { "id": 20, "role": "ai", "text": "AI cannot fully replace doctors. While AI excels at analyzing large datasets and identifying patterns, human judgment, empathy, and complex decision-making are irreplaceable. AI serves as a tool to augment healthcare professionals, improving efficiency and accuracy. Ultimately, AI helps doctors make better-informed decisions but does not eliminate the need for human expertise, ethical reasoning, and patient interaction." },
-        { "id": 21, "role": "user", "text": "What about ethical concerns in AI?" },
-        { "id": 22, "role": "ai", "text": "Ethical concerns in AI include bias in training data, lack of transparency, and privacy violations. If AI systems are trained on non-diverse datasets, they may perform poorly for underrepresented groups. There is also the risk of over-reliance, where humans blindly trust AI decisions. Regulations, audits, and explainable AI techniques are essential to mitigate these issues. Ethical AI ensures fairness, accountability, and safety across applications from healthcare to finance and beyond." },
-        { "id": 23, "role": "user", "text": "Explain neural networks briefly." },
-        { "id": 24, "role": "ai", "text": "Neural networks are computing systems inspired by the human brain. They consist of layers of interconnected nodes (neurons) where each connection has a weight. Input data passes through layers, gets transformed via activation functions, and produces output. Neural networks can learn complex patterns by adjusting weights during training using backpropagation. Deep neural networks with many layers (deep learning) are used for image recognition, NLP, and autonomous driving. Key aspects include layers, neurons, weights, biases, and learning rate optimization." }
-        
+        {
+          "id": 1,
+          "role": "user",
+          "text": "Hey, what exactly is machine learning?"
+        },
+        {
+          "id": 2,
+          "role": "ai",
+          "text": "Machine learning is a branch of artificial intelligence where computers learn patterns from data to make decisions or predictions without explicit programming. It includes supervised, unsupervised, and reinforcement learning approaches, each serving different purposes. In supervised learning, models learn from labeled data; in unsupervised, they find hidden patterns; and in reinforcement learning, agents learn by receiving rewards or penalties from their environment. Applications range from recommendation systems to autonomous vehicles, healthcare diagnostics, and financial modeling. The field has exploded in recent years thanks to advances in computational power, big data, and algorithms."
+        },
+        {
+          "id": 3,
+          "role": "user",
+          "text": "Can you give a practical example of supervised learning?"
+        },
+        {
+          "id": 4,
+          "role": "ai",
+          "text": "Sure! A classic example of supervised learning is predicting house prices. Suppose you have a dataset with features like square footage, number of bedrooms, and neighborhood, along with the actual prices of houses. You train a model on this data, and the model learns the relationship between features and price. Once trained, you can feed it a new house’s features and get a predicted price. Algorithms like linear regression, decision trees, and neural networks are commonly used for this. The key is that the model uses labeled data to learn, making it suitable for regression and classification tasks."
+        },
+        {
+          "id": 5,
+          "role": "user",
+          "text": "How does unsupervised learning differ?"
+        },
+        {
+          "id": 6,
+          "role": "ai",
+          "text": "Unsupervised learning deals with datasets that do not have labeled outputs. The algorithm tries to identify inherent structures or patterns in the data. For example, customer segmentation in marketing can group customers with similar behaviors without pre-existing categories. Clustering algorithms like K-means or hierarchical clustering are common, as well as dimensionality reduction techniques like PCA to simplify high-dimensional data. This approach is powerful for exploration, anomaly detection, and understanding complex datasets where labels are not available."
+        },
+        {
+          "id": 7,
+          "role": "user",
+          "text": "What is reinforcement learning in simple terms?"
+        },
+        {
+          "id": 8,
+          "role": "ai",
+          "text": "Reinforcement learning is a type of machine learning where an agent learns by interacting with an environment and receiving feedback through rewards or penalties. For instance, training an AI to play chess involves rewarding it for winning and penalizing it for losing. Over time, the agent develops strategies to maximize cumulative rewards. It is used in robotics, game AI, and autonomous systems. Popular algorithms include Q-learning, Deep Q-Networks, and policy gradient methods. RL focuses on sequential decision-making and long-term optimization."
+        },
+        {
+          "id": 9,
+          "role": "user",
+          "text": "Can you show a Python example of recursion?"
+        },
+        {
+          "id": 10,
+          "role": "ai",
+          "text": "Certainly! Here’s a simple recursive function to calculate factorial:\n\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)\n\nprint(factorial(5))  # Output: 120\n\nRecursion works by having a function call itself until it reaches a base condition. It's widely used in algorithms like Fibonacci series, tree traversals, and divide-and-conquer approaches. While elegant, recursion can be inefficient for large inputs without memoization or iterative optimization. It's essential to understand the problem depth and stack usage when designing recursive functions."
+        },
+        {
+          "id": 11,
+          "role": "user",
+          "text": "Explain Fibonacci recursion and why it’s inefficient."
+        },
+        {
+          "id": 12,
+          "role": "ai",
+          "text": "A recursive Fibonacci function calls itself twice for each number: fibonacci(n-1) + fibonacci(n-2). While this directly represents the mathematical definition, it recalculates the same values multiple times. For example, fibonacci(6) calls fibonacci(5) and fibonacci(4), but fibonacci(5) again calls fibonacci(4) and fibonacci(3), repeating work. This leads to exponential time complexity O(2^n). To improve efficiency, memoization stores already computed results, or dynamic programming solves iteratively. This reduces time complexity to linear O(n), making it suitable for larger inputs."
+        },
+        {
+          "id": 13,
+          "role": "user",
+          "text": "Can you show memoized Fibonacci in Python?"
+        },
+        {
+          "id": 14,
+          "role": "ai",
+          "text": "Yes! Here's a Python memoization example:\n\nmemo = {}\n\ndef fibonacci(n):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        return n\n    memo[n] = fibonacci(n-1) + fibonacci(n-2)\n    return memo[n]\n\nprint(fibonacci(40))  # Much faster!\n\nMemoization avoids repeated calculations by storing results in a cache. This dramatically speeds up recursive algorithms. It is widely used in dynamic programming problems like knapsack, coin change, and pathfinding in graphs. Understanding this technique is crucial for optimizing recursive solutions."
+        },
+        {
+          "id": 15,
+          "role": "user",
+          "text": "What is the difference between AI, ML, and DL?"
+        },
+        {
+          "id": 16,
+          "role": "ai",
+          "text": "AI (Artificial Intelligence) is the broad concept of machines performing tasks that normally require human intelligence. Machine Learning (ML) is a subset of AI, focused on algorithms that learn from data to make predictions or decisions. Deep Learning (DL) is a further subset of ML that uses neural networks with multiple layers to model complex patterns in large datasets. DL excels in image recognition, NLP, speech processing, and other high-dimensional data tasks. Think of them as concentric circles: DL ⊂ ML ⊂ AI."
+        },
+        {
+          "id": 17,
+          "role": "user",
+          "text": "How is AI used in healthcare?"
+        },
+        {
+          "id": 18,
+          "role": "ai",
+          "text": "AI in healthcare is used for diagnosis support, patient monitoring, drug discovery, and personalized treatment planning. For example, AI models can analyze medical images to detect tumors, often faster than human radiologists. Chatbots can assist patients in scheduling appointments or medication reminders. Predictive models help in identifying high-risk patients for proactive interventions. However, ethical concerns like bias, data privacy, and over-reliance on AI must be carefully managed."
+        },
+        {
+          "id": 19,
+          "role": "user",
+          "text": "Can AI replace doctors?"
+        },
+        {
+          "id": 20,
+          "role": "ai",
+          "text": "AI cannot fully replace doctors. While AI excels at analyzing large datasets and identifying patterns, human judgment, empathy, and complex decision-making are irreplaceable. AI serves as a tool to augment healthcare professionals, improving efficiency and accuracy. Ultimately, AI helps doctors make better-informed decisions but does not eliminate the need for human expertise, ethical reasoning, and patient interaction."
+        },
+        {
+          "id": 21,
+          "role": "user",
+          "text": "What about ethical concerns in AI?"
+        },
+        {
+          "id": 22,
+          "role": "ai",
+          "text": "Ethical concerns in AI include bias in training data, lack of transparency, and privacy violations. If AI systems are trained on non-diverse datasets, they may perform poorly for underrepresented groups. There is also the risk of over-reliance, where humans blindly trust AI decisions. Regulations, audits, and explainable AI techniques are essential to mitigate these issues. Ethical AI ensures fairness, accountability, and safety across applications from healthcare to finance and beyond."
+        },
+        {
+          "id": 23,
+          "role": "user",
+          "text": "Explain neural networks briefly."
+        },
+        {
+          "id": 24,
+          "role": "ai",
+          "text": "Neural networks are computing systems inspired by the human brain. They consist of layers of interconnected nodes (neurons) where each connection has a weight. Input data passes through layers, gets transformed via activation functions, and produces output. Neural networks can learn complex patterns by adjusting weights during training using backpropagation. Deep neural networks with many layers (deep learning) are used for image recognition, NLP, and autonomous driving. Key aspects include layers, neurons, weights, biases, and learning rate optimization."
+        },
+        {
+          "id": 1757508335576,
+          "role": "user",
+          "text": "sfsfs"
+        },
+        {
+          "id": 1757509294742,
+          "role": "user",
+          "text": "haija\n"
+        },
+        {
+          "id": 1757509301569,
+          "role": "user",
+          "text": "ascasc"
+        },
+        {
+          "id": 1757564217733,
+          "role": "user",
+          "text": "heuuie\n"
+        },
+        {
+          "id": 1757564326944,
+          "role": "user",
+          "text": "\"use client\";\nimport React from \"react\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/components/ui/dropdown-menu\";\nimport {\n  Atom,\n  ChevronDown,\n  Ellipsis,\n  MessageCircleDashed,\n  Share,\n} from \"lucide-react\";\nimport { usePathname } from \"next/navigation\";\n\nfunction AppNavBar() {\n  const isChatPage = usePathname().startsWith(\"/home/chat\");\n  return (\n    <div className=\"absolute top-0 left-0 w-full  flex flex-row justify-between items-center\">\n      <div className=\"p-2\">\n        <DropdownMenu>\n          <DropdownMenuTrigger className=\"flex flex-row gap-2 text-lg hover:bg-gray-100 p-2 rounded-2xl\">\n            ChatGPT <ChevronDown />\n          </DropdownMenuTrigger>\n          <DropdownMenuContent align=\"start\">\n            <DropdownMenuItem>\n              <div className=\"flex flex-row justify-center items-center gap-2\">\n                <Atom />\n                <div>\n                  <h1>ChatGPT Go</h1>\n                  <p className=\"text-gray-400\">Our smartest model & more</p>\n                </div>\n              </div>\n            </DropdownMenuItem>\n            <DropdownMenuItem>\n              <div className=\"flex flex-row justify-center items-center gap-2\">\n                <Atom className=\"h-30\" />\n                <div>\n                  <h1>ChatGPT Plus</h1>\n                  <p className=\"text-gray-400\">Our smartest model & more</p>\n                </div>\n              </div>\n            </DropdownMenuItem>\n          </DropdownMenuContent>\n        </DropdownMenu>\n      </div>\n      {isChatPage ? (\n        <div className=\"flex flex-row justify-center items-center mr-5 gap-2\">\n          <div className=\"flex flex-row  justify-center items-center gap-2 hover:bg-gray-100 p-2 rounded-2xl\">\n            <Share className=\"w-4\" />\n            <p>Share</p>\n          </div>\n          <DropdownMenu>\n            <DropdownMenuTrigger className=\"flex flex-row gap-2 text-lg hover:bg-gray-100 p-2 rounded-2xl\">\n              <Ellipsis />\n            </DropdownMenuTrigger>\n            <DropdownMenuContent side=\"bottom\" align=\"end\">\n              <DropdownMenuItem>\n                <div className=\"flex flex-row justify-center items-center gap-2\">\n                  <h1>Delete</h1>\n                </div>\n              </DropdownMenuItem>\n              <DropdownMenuItem>\n                <div className=\"flex flex-row justify-center items-center gap-2\">\n                  <h1>Edit</h1>\n                </div>\n              </DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </div>\n      ) : (\n        <>\n          <div className=\"flex flex-row justify-center items-center bg-gray-100 hover:bg-gray-200 rounded-full p-2\">\n            <h1 className=\"text-blue-800 font-medium px-2 \">Upgrade to Go</h1>\n          </div>\n          <div className=\"p-2 rounded-full hover:bg-gray-100\">\n            <MessageCircleDashed />\n          </div>\n        </>\n      )}\n    </div>\n  );\n}\n\nexport default AppNavBar;\n\n"
+        },
+        {
+          "id": 1757564487462,
+          "role": "user",
+          "text": "wdcnjnwikcnw"
+        },
+        {
+          "id": 1757564491852,
+          "role": "user",
+          "text": "wncjnwejcniowencn\nkcmdecmemcmkiemcke"
+        },
+        {
+          "id": 1757564708038,
+          "role": "user",
+          "text": "ll"
+        },
+        {
+          "id": 1757564718102,
+          "role": "user",
+          "text": "nknkkkknknnnknkkkn"
+        }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Python Practice",
       "messages": [
-        { "id": 1, "role": "user", "text": "How do I write a Python loop?" },
-        { "id": 2, "role": "ai", "text": "Python loops are used to repeat code. The two main types are for-loops and while-loops. A for-loop iterates over a sequence, such as a list or range, while a while-loop continues as long as a condition is true. Example:\n\nfor i in range(5):\n    print(i)\n\nThis prints numbers 0 through 4. Python also supports list comprehensions for concise iteration and the use of break/continue statements for flow control. Proper indentation is crucial in Python loops since the language uses whitespace to define blocks." }
-       
+        {
+          "id": 1,
+          "role": "user",
+          "text": "How do I write a Python loop?"
+        }
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Fun Facts",
       "messages": [
-        { "id": 1, "role": "user", "text": "Tell me a fun science fact." },
-        { "id": 2, "role": "ai", "text": "Did you know that octopuses have three hearts and blue blood? Two hearts pump blood to the gills, and one pumps it to the rest of the body. Their blood contains copper-based hemocyanin, which is more efficient in cold, low-oxygen environments. Octopuses are incredibly intelligent, capable of problem-solving and using tools. This makes them fascinating subjects in marine biology and cognitive research." }
+        {
+          "id": 1,
+          "role": "user",
+          "text": "Tell me a fun science fact."
+        },
+        {
+          "id": 2,
+          "role": "ai",
+          "text": "Did you know that octopuses have three hearts and blue blood? Two hearts pump blood to the gills, and one pumps it to the rest of the body. Their blood contains copper-based hemocyanin, which is more efficient in cold, low-oxygen environments. Octopuses are incredibly intelligent, capable of problem-solving and using tools. This makes them fascinating subjects in marine biology and cognitive research."
+        },
+        {
+          "id": 3,
+          "role": "user",
+          "text": "Can you give a practical example of supervised learning?"
+        },
+        {
+          "id": 4,
+          "role": "ai",
+          "text": "Sure! A classic example of supervised learning is predicting house prices. Suppose you have a dataset with features like square footage, number of bedrooms, and neighborhood, along with the actual prices of houses. You train a model on this data, and the model learns the relationship between features and price. Once trained, you can feed it a new house’s features and get a predicted price. Algorithms like linear regression, decision trees, and neural networks are commonly used for this. The key is that the model uses labeled data to learn, making it suitable for regression and classification tasks."
+        },
+        {
+          "id": 5,
+          "role": "user",
+          "text": "How does unsupervised learning differ?"
+        },
+        {
+          "id": 6,
+          "role": "ai",
+          "text": "Unsupervised learning deals with datasets that do not have labeled outputs. The algorithm tries to identify inherent structures or patterns in the data. For example, customer segmentation in marketing can group customers with similar behaviors without pre-existing categories. Clustering algorithms like K-means or hierarchical clustering are common, as well as dimensionality reduction techniques like PCA to simplify high-dimensional data. This approach is powerful for exploration, anomaly detection, and understanding complex datasets where labels are not available."
+        },
+        {
+          "id": 7,
+          "role": "user",
+          "text": "What is reinforcement learning in simple terms?"
+        },
+        {
+          "id": 8,
+          "role": "ai",
+          "text": "Reinforcement learning is a type of machine learning where an agent learns by interacting with an environment and receiving feedback through rewards or penalties. For instance, training an AI to play chess involves rewarding it for winning and penalizing it for losing. Over time, the agent develops strategies to maximize cumulative rewards. It is used in robotics, game AI, and autonomous systems. Popular algorithms include Q-learning, Deep Q-Networks, and policy gradient methods. RL focuses on sequential decision-making and long-term optimization."
+        },
+        {
+          "id": 9,
+          "role": "user",
+          "text": "Can you show a Python example of recursion?"
+        },
+        {
+          "id": 1757503959755,
+          "role": "user",
+          "text": "ssc"
+        },
+        {
+          "id": 1757503964747,
+          "role": "user",
+          "text": "axaxa"
+        },
+        {
+          "id": 1757503998441,
+          "role": "user",
+          "text": "bhwecewnui\n"
+        },
+        {
+          "id": 1757505400808,
+          "role": "user",
+          "text": "sdsds"
+        },
+        {
+          "id": 1757505424363,
+          "role": "user",
+          "text": "dwhdgygwqahf\n"
+        },
+        {
+          "id": 1757507228465,
+          "role": "user",
+          "text": "weduwhdi\n"
+        },
+        {
+          "id": 1757507242004,
+          "role": "user",
+          "text": "wdwdwdwd\n"
+        },
+        {
+          "id": 1757507808489,
+          "role": "user",
+          "text": "\"use client\";\nimport SearchBar from \"@/components/ui/SearchBar\";\nimport { useEffect, useState } from \"react\";\nimport { useParams } from \"next/navigation\";\ntype Message = {\n  role: \"user\" | \"ai\";\n  text: string;\n};\n\nfunction page() {\n  const [messages, setMessages] = useState<Message[]>([]);\n  const params = useParams();\n  const conversationId :any  = params.id;\n\n  useEffect(() => {\n    const fetchMessages = async () => {\n      try {\n        const res = await fetch(\n          `http://localhost:3001/conversations/${conversationId}`\n        );\n        const data = await res.json();\n        setMessages(data.messages);\n      } catch (err) {\n        console.error(err);\n      }\n    };\n\n    if (conversationId) fetchMessages();\n  }, [conversationId]);\n\n  return (\n    <div className=\"flex flex-col h-screen\">\n      <div className=\"flex-1 overflow-y-auto p-4 space-y-4\">\n        <div className=\"mx-auto w-[60%]\">\n          {messages.map((msg, i) => (\n            <div\n              key={i}\n              className={`flex ${\n                msg.role === \"user\" ? \"justify-end\" : \"justify-start\"\n              }`}\n            >\n              <div\n                className={`p-3 rounded-2xl  ${\n                  msg.role === \"user\"\n                    ? \"bg-gray-200  rounded-br-none max-w-md \"\n                    : \"text-gray-900  w-full\"\n                }`}\n              >\n                {msg.text}\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n      <div className=\"flex flex-row items-center justify-center py-5\">\n        <div className=\" flex w-full justify-center\">\n          <SearchBar id={conversationId } setMessages={ setMessages} />\n        </div>\n      </div>\n    </div>\n  );\n}\n\nexport default page;\n"
+        }
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Data Science Concepts",
-      "messages": []
+      "messages": [
+        {
+          "id": 1757567836132,
+          "role": "user",
+          "text": "ewqfewf"
+        }
+      ]
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Web Development",
       "messages": []
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "AI in Healthcare",
       "messages": []
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Machine Learning Algorithms",
       "messages": []
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Deep Learning",
       "messages": []
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Programming Challenges",
       "messages": []
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Career Advice",
       "messages": []
+    },
+    {
+      "id": "1757565315987",
+      "title": "xxwxws",
+      "messages": [
+        {
+          "id": 1757565315987,
+          "role": "user",
+          "text": "xxwxws"
+        }
+      ]
+    },
+    {
+      "id": "1757565323211",
+      "title": "xwenxws bxjnwjnjxnwn",
+      "messages": [
+        {
+          "id": 1757565323211,
+          "role": "user",
+          "text": "xwenxws bxjnwjnjxnwnjnsj"
+        }
+      ]
+    },
+    {
+      "id": "1757565354976",
+      "title": "wxnwjnx",
+      "messages": [
+        {
+          "id": 1757565354976,
+          "role": "user",
+          "text": "wxnwjnx"
+        }
+      ]
+    },
+    {
+      "id": "1757565362159",
+      "title": "a",
+      "messages": [
+        {
+          "id": 1757565362159,
+          "role": "user",
+          "text": "a"
+        }
+      ]
+    },
+    {
+      "id": "1757565484379",
+      "title": "xsjbxhhsbx",
+      "messages": [
+        {
+          "id": 1757565484379,
+          "role": "user",
+          "text": "xsjbxhhsbx"
+        }
+      ]
+    },
+    {
+      "id": "1757565532148",
+      "title": "sxhshbx",
+      "messages": [
+        {
+          "id": 1757565532148,
+          "role": "user",
+          "text": "sxhshbx"
+        }
+      ]
+    },
+    {
+      "id": "1757565615911",
+      "title": "cxebhce",
+      "messages": [
+        {
+          "id": 1757565615912,
+          "role": "user",
+          "text": "cxebhce"
+        }
+      ]
+    },
+    {
+      "id": "1757565629148",
+      "title": "wdhuwe",
+      "messages": [
+        {
+          "id": 1757565629148,
+          "role": "user",
+          "text": "wdhuwe"
+        }
+      ]
+    },
+    {
+      "id": "1757565651831",
+      "title": "xwegxywguegx",
+      "messages": [
+        {
+          "id": 1757565651831,
+          "role": "user",
+          "text": "xwegxywguegx"
+        }
+      ]
+    },
+    {
+      "id": "1757565873068",
+      "title": "sxhbxbw",
+      "messages": [
+        {
+          "id": 1757565873068,
+          "role": "user",
+          "text": "sxhbxbw"
+        }
+      ]
+    },
+    {
+      "id": "1757565882303",
+      "title": "wsbwhbhs",
+      "messages": [
+        {
+          "id": 1757565882303,
+          "role": "user",
+          "text": "wsbwhbhs"
+        }
+      ]
+    },
+    {
+      "id": "1757566036611",
+      "title": "ebdheu",
+      "messages": [
+        {
+          "id": 1757566036611,
+          "role": "user",
+          "text": "ebdheu"
+        }
+      ]
+    },
+    {
+      "id": "1757566083222",
+      "title": "2gfygwey",
+      "messages": [
+        {
+          "id": 1757566083222,
+          "role": "user",
+          "text": "2gfygwey"
+        }
+      ]
+    },
+    {
+      "id": "1757566159032",
+      "title": "ashik",
+      "messages": [
+        {
+          "id": 1757566159032,
+          "role": "user",
+          "text": "ashik"
+        }
+      ]
+    },
+    {
+      "id": "1757566549675",
+      "title": "segsrgrg",
+      "messages": [
+        {
+          "id": 1757566549675,
+          "role": "user",
+          "text": "segsrgrg"
+        }
+      ]
+    },
+    {
+      "id": "1757566563740",
+      "title": "12334556767",
+      "messages": [
+        {
+          "id": 1757566563740,
+          "role": "user",
+          "text": "12334556767"
+        },
+        {
+          "id": 1757566924777,
+          "role": "user",
+          "text": "hwfiwue"
+        },
+        {
+          "id": 1757566926184,
+          "role": "user",
+          "text": "fewhhfiwef"
+        }
+      ]
+    },
+    {
+      "id": 1757567007713,
+      "title": "wdbswhd",
+      "messages": [
+        {
+          "id": 1757567007713,
+          "role": "user",
+          "text": "wdbswhd"
+        }
+      ]
+    },
+    {
+      "id": "43aa",
+      "title": "dededed",
+      "messages": [
+        {
+          "id": 1757567143938,
+          "role": "user",
+          "text": "dededed"
+        }
+      ]
+    },
+    {
+      "id": 1757567353030,
+      "title": "edce",
+      "messages": [
+        {
+          "id": 1757567353030,
+          "role": "user",
+          "text": "edce"
+        }
+      ]
+    },
+    {
+      "id": "1757567420337",
+      "title": "wedbwehud",
+      "messages": [
+        {
+          "id": 1757567420337,
+          "role": "user",
+          "text": "wedbwehud"
+        }
+      ]
+    },
+    {
+      "id": "1757567617605",
+      "title": "fbshafhs",
+      "messages": [
+        {
+          "id": 1757567617605,
+          "role": "user",
+          "text": "fbshafhs"
+        },
+        {
+          "id": 1757567625486,
+          "role": "user",
+          "text": "cfcgh"
+        }
+      ]
+    },
+    {
+      "id": "1757567900451",
+      "title": "addbu",
+      "messages": [
+        {
+          "id": 1757567900451,
+          "role": "user",
+          "text": "addbu"
+        }
+      ]
+    },
+    {
+      "id": "1757571697264",
+      "title": "helloooooo",
+      "messages": [
+        {
+          "id": 1757571697264,
+          "role": "user",
+          "text": "helloooooo"
+        }
+      ]
     }
   ]
 }

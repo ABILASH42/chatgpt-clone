@@ -7,7 +7,7 @@ function page() {
   return (
     <div className="flex flex-col gap-8 justify-center-safe items-center h-screen  w-full ">
       <h1 className="text-3xl ">Whats on your mind today?</h1>
-      <SearchBar/>
+      <SearchBar id="home" setMessages={undefined}  />
     </div>
   );
 }
